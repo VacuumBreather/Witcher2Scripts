@@ -136,10 +136,7 @@ import class CGuiUtils extends CObject
 			}
 		}
 		
-		if ( tagCreatedItem ) {
-			tagLocNameTagged = "(" + tagLocTag + " " + "Diagram" + ") " + GetLocStringByKeyExt( tagCreatedName );
-			inventory.RemoveItem( tagCreatedId, 1 );
-		} else if ( tagLocTag == "" ) {
+		if ( tagLocTag == "" ) {
 			tagLocNameTagged = GetLocStringByKeyExt( tagItemName );
 		} else {
 			tagLocNameTagged = "(" + tagLocTag + ") " + GetLocStringByKeyExt( tagItemName );
