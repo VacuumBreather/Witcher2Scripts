@@ -90,59 +90,59 @@ import class CGuiUtils extends CObject
 		
 		if ( tagItemTags.Contains('SortTypeQuest') || tagItemCategory == 'quest') {
 			if ( tagItemCategory == 'key' ) {
-				tagLocTag = "Key"; // GetLocStringByKeyExt( "type_key" );
+				tagLocTag = GetLocStringByKeyExt( "type_key" );
 			} else {
-				tagLocTag = "Quest Item"; // GetLocStringByKeyExt( "type_quest" );
+				tagLocTag = GetLocStringByKeyExt( "type_quest" );
 			}
 		} else if ( tagItemCategory == 'armor' ) {
-			tagLocTag = "Armor"; // GetLocStringByKeyExt( "type_armor" );
+			tagLocTag = GetLocStringByKeyExt( "type_armor" );
 		} else if ( tagItemCategory == 'armorupgrade' ) {
-			tagLocTag = "Enhancement"; // GetLocStringByKeyExt( "type_armorupgr" );
+			tagLocTag = GetLocStringByKeyExt( "type_armorupgr" );
 		} else if ( tagItemCategory == 'book' ) {
-			tagLocTag = "Book"; // GetLocStringByKeyExt( "type_book" );
+			tagLocTag = GetLocStringByKeyExt( "type_book" );
 		} else if ( tagItemCategory == 'boots' ) {
-			tagLocTag = "Boots"; // GetLocStringByKeyExt( "type_boots" );
+			tagLocTag = GetLocStringByKeyExt( "type_boots" );
 		} else if ( tagItemCategory == 'gloves' ) {
-			tagLocTag = "Gloves"; // GetLocStringByKeyExt( "type_gloves" );
+			tagLocTag = GetLocStringByKeyExt( "type_gloves" );
 		} else if ( tagItemCategory == 'lure' ) {
-			tagLocTag = "Lure"; // GetLocStringByKeyExt( "type_lure" );
+			tagLocTag = GetLocStringByKeyExt( "type_lure" );
 		} else if ( tagItemCategory == 'other' ) {
-			tagLocTag = "Junk"; // GetLocStringByKeyExt( "type_trash" );
+			tagLocTag = GetLocStringByKeyExt( "type_trash" );
 		} else if ( tagItemCategory == 'skillupgrade' ) {
-			tagLocTag = "Mutagen"; // GetLocStringByKeyExt( "type_mutagen" );
+			tagLocTag = GetLocStringByKeyExt( "type_mutagen" );
 		} else if ( tagItemCategory == 'weaponupgrade' ) {
-			tagLocTag = "Oil"; // GetLocStringByKeyExt( "type_grease" );
+			tagLocTag = GetLocStringByKeyExt( "type_grease" );
 		} else if ( tagItemCategory == 'pants' ) {
-			tagLocTag = "Trousers"; // GetLocStringByKeyExt( "type_pants" );
+			tagLocTag = GetLocStringByKeyExt( "type_pants" );
 		} else if ( tagItemCategory == 'petard' ) {
-			tagLocTag = "Bomb"; // GetLocStringByKeyExt( "type_bomb" );
+			tagLocTag = GetLocStringByKeyExt( "type_bomb" );
 		} else if ( tagItemCategory == 'elixir' ) {
-			tagLocTag = "Potion"; // GetLocStringByKeyExt( "type_potion" );
+			tagLocTag = GetLocStringByKeyExt( "type_potion" );
 		} else if ( tagItemCategory == 'rangedweapon' ) {
-			tagLocTag = "Dagger"; // GetLocStringByKeyExt( "type_thrown" );
+			tagLocTag = GetLocStringByKeyExt( "type_thrown" );
 		} else if ( tagItemCategory == 'rune' ) {
-			tagLocTag = "Rune"; // GetLocStringByKeyExt( "type_rune" );
+			tagLocTag = GetLocStringByKeyExt( "type_rune" );
 		} else if ( tagItemCategory == 'silversword' ) {
-			tagLocTag = "Silver"; // GetLocStringByKeyExt( "type_swordsilver" );
+			tagLocTag = GetLocStringByKeyExt( "type_swordsilver" );
 		} else if ( tagItemCategory == 'steelsword' ) {
-			tagLocTag = "Steel"; // GetLocStringByKeyExt( "type_swordsteel" );
+			tagLocTag = GetLocStringByKeyExt( "type_swordsteel" );
 		} else if ( tagItemCategory == 'trap' ) {
-			tagLocTag = "Trap"; // GetLocStringByKeyExt( "type_trap" );
+			tagLocTag = GetLocStringByKeyExt( "type_trap" );
 		} else if ( tagItemCategory == 'trophy' ) {
-			tagLocTag = "Trophy"; // GetLocStringByKeyExt( "type_trophy" );
+			tagLocTag = GetLocStringByKeyExt( "type_trophy" );
 		} else if ( tagLocTag == "" ) {
 			if ( tagItemCategory == 'alchemyingredient' || tagItemCategory == 'craftingingredient') {
-				tagLocTag = "Crafting"; // GetLocStringByKeyExt( "[[locale.inv.listcraftingingredients]]" );
+				tagLocTag = GetLocStringByKeyExt( "[[locale.inv.listcraftingingredients]]" );
 			}
 		}
 		
 		if ( tagCreatedItem ) {
-			tagLocNameTagged = "(" + StrLeft( GetLocStringByKeyExt( "[[locale.inv.listcraftingingredients]]" ), 3 ) + ", " + StrLeft( tagLocTag, 3) + ") " + GetLocStringByKeyExt( tagCreatedName );
+			tagLocNameTagged = "(" + GetLocStringByKeyExt( "[[locale.inv.listcraftingingredients]]" ) + ", " + tagLocTag + ") " + GetLocStringByKeyExt( tagCreatedName );
 			inventory.RemoveItem( tagCreatedId, 1 );
 		} else if ( tagLocTag == "" ) {
 			tagLocNameTagged = GetLocStringByKeyExt( tagItemName );
 		} else {
-			tagLocNameTagged = "(" + StrLeft( tagLocTag, 3) + ") " + GetLocStringByKeyExt( tagItemName );
+			tagLocNameTagged = "(" + tagLocTag + ") " + GetLocStringByKeyExt( tagItemName );
 		}
 		
 		// Remove temporary items
