@@ -541,16 +541,14 @@ class CContainer extends CGameplayEntity
 		{
 			PlayEffect( 'quest_glow' );
 		}
-	} 
- 	
-	// EMC - Detect without using medallion
+	}
+	
 	function SetVisualsFull()
 	{
 		ApplyAppearance( "1_full" );
-		PlayEffect('medalion_detection_fx');
 		PlayEffect( 'glow' );
 		QuestItemGlow();
-		isHighlightedByMedallion = false;
+		isHighlightedByMedallion = true;
 	}
 	
 	function SetVisualsEmpty()
