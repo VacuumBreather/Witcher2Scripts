@@ -4037,7 +4037,7 @@ mBoolean( true ) );
 			level = level + 1;
 			
 			talents = GetTalentPoints();
-			SetTalentPoints( talents + 1 );
+			SetTalentPoints( talents + 2 );
 			
 			levelname = StringToName("Level" + level);
 			GetCharacterStats().AddAbility( levelname );
@@ -7380,7 +7380,7 @@ thePlayer.RemoveAllBuffs();
 				itemName = StringToName("magic_s" + i + "_2" );
 				if ( thePlayer.GetCharacterStats().HasAbility(itemName) ) thePlayer.GetCharacterStats().RemoveAbility(itemName);
 			}
-		talents = level - 1;
+		talents = (level - 1) * 2;
 	}	
 	function AllowCombatRotation(flag : bool)
 	{
