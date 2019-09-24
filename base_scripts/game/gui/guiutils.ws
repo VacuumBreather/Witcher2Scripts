@@ -123,9 +123,9 @@ import class CGuiUtils extends CObject
 		} else if ( tagItemCategory == 'rune' ) {
 			tagLocTag = GetLocStringByKeyExt( "type_rune" );
 		} else if ( tagItemCategory == 'silversword' ) {
-			tagLocTag = "Silver"; //GetLocStringByKeyExt( "type_swordsilver" );
+			tagLocTag = GetLocStringByKeyExt( "type_swordsilver" );
 		} else if ( tagItemCategory == 'steelsword' ) {
-			tagLocTag = "Steel"; //GetLocStringByKeyExt( "type_swordsteel" );
+			tagLocTag = GetLocStringByKeyExt( "type_swordsteel" );
 		} else if ( tagItemCategory == 'trap' ) {
 			tagLocTag = GetLocStringByKeyExt( "type_trap" );
 		} else if ( tagItemCategory == 'trophy' ) {
@@ -137,7 +137,7 @@ import class CGuiUtils extends CObject
 		}
 		
 		if ( tagCreatedItem ) {
-			tagLocNameTagged = "(" + StrLeft( GetLocStringByKeyExt( "[[locale.inv.listcraftingingredients]]" ), 3 ) + ", " + tagLocTag + ") " + GetLocStringByKeyExt( tagCreatedName );
+			tagLocNameTagged = "(" + tagLocTag + " " + "Diagram" + ") " + GetLocStringByKeyExt( tagCreatedName );
 			inventory.RemoveItem( tagCreatedId, 1 );
 		} else if ( tagLocTag == "" ) {
 			tagLocNameTagged = GetLocStringByKeyExt( tagItemName );
