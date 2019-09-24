@@ -97,7 +97,7 @@ import class CGuiUtils extends CObject
 		} else if ( tagItemCategory == 'armor' ) {
 			tagLocTag = GetLocStringByKeyExt( "type_armor" );
 		} else if ( tagItemCategory == 'armorupgrade' ) {
-			tagLocTag = GetLocStringByKeyExt( "type_armorupgr" );
+			tagLocTag = "Enhancement"; //GetLocStringByKeyExt( "type_armorupgr" );
 		} else if ( tagItemCategory == 'book' ) {
 			tagLocTag = GetLocStringByKeyExt( "type_book" );
 		} else if ( tagItemCategory == 'boots' ) {
@@ -123,9 +123,9 @@ import class CGuiUtils extends CObject
 		} else if ( tagItemCategory == 'rune' ) {
 			tagLocTag = GetLocStringByKeyExt( "type_rune" );
 		} else if ( tagItemCategory == 'silversword' ) {
-			tagLocTag = GetLocStringByKeyExt( "type_swordsilver" );
+			tagLocTag = "Silver"; //GetLocStringByKeyExt( "type_swordsilver" );
 		} else if ( tagItemCategory == 'steelsword' ) {
-			tagLocTag = GetLocStringByKeyExt( "type_swordsteel" );
+			tagLocTag = "Steel"; //GetLocStringByKeyExt( "type_swordsteel" );
 		} else if ( tagItemCategory == 'trap' ) {
 			tagLocTag = GetLocStringByKeyExt( "type_trap" );
 		} else if ( tagItemCategory == 'trophy' ) {
@@ -137,7 +137,7 @@ import class CGuiUtils extends CObject
 		}
 		
 		if ( tagCreatedItem ) {
-			tagLocNameTagged = "(" + GetLocStringByKeyExt( "[[locale.inv.listcraftingingredients]]" ) + ", " + tagLocTag + ") " + GetLocStringByKeyExt( tagCreatedName );
+			tagLocNameTagged = "(" + StrLeft( GetLocStringByKeyExt( "[[locale.inv.listcraftingingredients]]" ), 3 ) + ", " + tagLocTag + ") " + GetLocStringByKeyExt( tagCreatedName );
 			inventory.RemoveItem( tagCreatedId, 1 );
 		} else if ( tagLocTag == "" ) {
 			tagLocNameTagged = GetLocStringByKeyExt( tagItemName );
