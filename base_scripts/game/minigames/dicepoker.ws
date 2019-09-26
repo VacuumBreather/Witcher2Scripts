@@ -1024,21 +1024,7 @@ import class W2MinigameDicePoker extends CMinigame
 			else
 			{
 				// Restore original position
-				if ( playerIdx == DicePoker_NPC )
-				{
-					if ( i == ( m_playerStatuses[ playerIdx ].m_dices.Size() - 1 ) )
-					{
-						dice.ResetPosition( 6 );
-					}
-					else
-					{
-						dice.ResetPosition( i + 1 );
-					}
-				}
-				else
-				{
-					dice.ResetPosition();
-				}
+				dice.ResetPosition();
 			}
 		}
 	}

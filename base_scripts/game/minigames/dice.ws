@@ -207,19 +207,12 @@ class CMinigameDice
 		m_physics.ApplyLinearImpulse( m_rigidBodyIdx, VecNormalize( vector ) * strength );
 	}
 
-	final function ResetPosition( optional cheatResult : int )
+	final function ResetPosition()
 	{
 		var result : int;
 
 		// Save current result
-		if ( cheatResult == 0 )
-		{
-			result = GetResult();
-		}
-		else
-		{
-			result = cheatResult;
-		}
+		result = GetResult();
 
 		// Reset transform
 		m_physics.ResetTransform( m_rigidBodyIdx );
