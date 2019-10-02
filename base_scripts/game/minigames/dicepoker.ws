@@ -1018,8 +1018,8 @@ import class W2MinigameDicePoker extends CMinigame
 				(  position.X > m_tableBox.Max.X
 				|| position.Y > m_tableBox.Max.Y ) )
 			{
-				// Restore original position
-				dice.ResetPosition();
+				dice.Disable();
+				dice.Teleport( Vector( 0.0f, 0.0f, -1000.0f ) );
 			}
 			else
 			{
