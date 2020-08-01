@@ -78,7 +78,7 @@ state Combat in CPlayer extends ExtendedMovable
 			targetLockActive = false;
 			SetTargetLock( (CActor)NULL );
 		}
-		
+		OnTargetLockDeactivated();
 	}
 	event OnLeaveState()
 	{
@@ -106,6 +106,7 @@ state Combat in CPlayer extends ExtendedMovable
 		}
 		parent.RemoveTimer('MarkEnemyTimer' );
 		ResetEnemy();
+		OnTargetLockDeactivated();
 		super.OnLeaveState();	
 	}
 	
@@ -1090,10 +1091,12 @@ state Combat in CPlayer extends ExtendedMovable
 	
 	event OnTargetLockActivated() 
 	{
+		theCamera.FocusOn( thePlayer.GetLockedTarget() );
 	}
 	
 	event OnTargetLockDeactivated()
 	{
+		theCamera.FocusDeactivation();
 	}
 		
 	private function FindEnemy() : CActor
