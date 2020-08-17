@@ -2392,7 +2392,12 @@ latent storyscene function GameplayOptionBet( player: CStoryScenePlayer, minAmou
 	var bribeValue, bribeMaxValue : int;
 	var bribeAmount : int;
 	var playerOrensCount : int = thePlayer.GetInventory().GetItemQuantityByName('Orens');
-
+	
+	//START, MODDED: Set new (min/max)Amounts
+	minAmount = 1;
+	maxAmount = 10*maxAmount;
+	//END, MODDED
+	
 	bribeMaxValue = maxAmount;
 	
 	if ( playerOrensCount < minAmount ) return false;
