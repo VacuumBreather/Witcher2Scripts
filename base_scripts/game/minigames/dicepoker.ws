@@ -900,13 +900,13 @@ import class W2MinigameDicePoker extends CMinigame
 		GetPlayerScore( DicePoker_NPC, npcFigure, npcMajor, npcMinor );
 		
 		if ( playerFigure > npcFigure ) return DicePoker_Player;
-		if ( playerFigure < npcFigure ) return DicePoker_NPC;
+		if ( playerFigure < npcFigure ) return DicePoker_Player;
 		
 		if ( playerMajor > npcMajor ) return DicePoker_Player;
-		if ( playerMajor < npcMajor ) return DicePoker_NPC;
+		if ( playerMajor < npcMajor ) return DicePoker_Player;
 		
 		if ( playerMinor > npcMinor ) return DicePoker_Player;
-		if ( playerMinor < npcMinor ) return DicePoker_NPC;
+		if ( playerMinor < npcMinor ) return DicePoker_Player;
 		
 		return -1;
 	}
@@ -1018,13 +1018,27 @@ import class W2MinigameDicePoker extends CMinigame
 				(  position.X > m_tableBox.Max.X
 				|| position.Y > m_tableBox.Max.Y ) )
 			{
-				dice.Disable();
-				dice.Teleport( Vector( 0.0f, 0.0f, -1000.0f ) );
+				// Restore original position
+				dice.ResetPosition();
 			}
 			else
 			{
 				// Restore original position
-				dice.ResetPosition();
+				if ( playerIdx == DicePoker_NPC )
+				{
+					if ( i == ( m_playerStatuses[ playerIdx ].m_dices.Size() - 1 ) )
+					{
+						dice.ResetPosition( 6 );
+					}
+					else
+					{
+						dice.ResetPosition( i + 1 );
+					}
+				}
+				else
+				{
+					dice.ResetPosition();
+				}
 			}
 		}
 	}

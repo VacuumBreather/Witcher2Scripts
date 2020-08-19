@@ -1078,7 +1078,10 @@ import class CGuiUtils extends CObject
 		
 		if ( inv == thePlayer.GetInventory() )
 		{
-			return (1 + RoundFEx(item_price / 10));
+			/*return (1 + RoundFEx(item_price / 10));*/
+			if (itemTags.Contains( 'AlchemyIngridient' ) && (item_price <= 100)) { item_price = item_price / 2.5; }
+			item_price = item_price / 2.5;
+			return (1 + RoundFEx(item_price));
 		} 
 		else
 		{

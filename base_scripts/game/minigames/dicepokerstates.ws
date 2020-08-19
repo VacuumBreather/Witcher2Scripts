@@ -62,7 +62,7 @@ state PlayerSelect in W2MinigameDicePoker
 
 		parent.SelectAllDices( DicePoker_Player, false );
 
-		parent.CameraCloseUp();
+		parent.CameraTop();
 
 		parent.StartPlayerSelection();
 	}
@@ -139,8 +139,13 @@ state PlayerBetting in W2MinigameDicePoker
 		// Select stake
 		if( firstBet )
 		{
-			minimalBet = Min( parent.m_npc.GetDicePokerMinBet(), parent.m_playerStatuses[ DicePoker_Player ].m_money );
-			maximalBet = Min( parent.m_npc.GetDicePokerMaxBet(), parent.m_playerStatuses[ DicePoker_Player ].m_money );
+			//START, MODDED: Set new (min/max)Amounts
+			minimalBet = Min( 1, parent.m_playerStatuses[ DicePoker_Player ].m_money );
+			maximalBet = Min( 10*parent.m_npc.GetDicePokerMaxBet(), parent.m_playerStatuses[ DicePoker_Player ].m_money );
+			//END, MODDED
+			//minimalBet = Min( parent.m_npc.GetDicePokerMinBet(), parent.m_playerStatuses[ DicePoker_Player ].m_money );
+			//maximalBet = Min( parent.m_npc.GetDicePokerMaxBet(), parent.m_playerStatuses[ DicePoker_Player ].m_money );
+			
 			parent.m_guiPanel.Betting( maximalBet, minimalBet,
 				"[[locale.dice.PlaceYourBet]]", "[[locale.dice.Bet]]", "[[locale.dice.Pass]]" );
 		}
@@ -230,7 +235,7 @@ state PlayerThrowing in W2MinigameDicePoker
 {
 	entry function StatePlayerThrowing()
 	{
-		parent.CameraSide();
+		parent.CameraTop();
 		
 		if( theGame.IsUsingPad() )
 		{
